@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>📘 Screenshot Notes Extractor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🧠 Screenshot Notes Extractor</h1>
+      <div class="metadata-form">
+        <input type="text" id="bookName" placeholder="Enter Book Name..." required>
+        <button id="startSession">Start Session</button>
+      </div>
+    </header>
+
+    <section id="sessionInfo" hidden>
+      <p>📖 Book: <span id="sessionBook"></span></p>
+      <p>⏱️ Time: <span id="sessionTime"></span></p>
+    </section>
+
+    <main id="mainContent" hidden>
+      <div class="upload-box">
+        <label for="imageInput">Upload Screenshot:</label>
+        <input type="file" id="imageInput" accept="image/*">
+        <button id="processBtn">🔍 Extract Key Points</button>
+      </div>
+
+      <div id="loader">🌀 Processing Image...</div>
+      <div id="output"></div>
+    </main>
+
+    <section id="exportOptions" hidden>
+      <h4>📤 Export Selected As:</h4>
+      <label><input type="checkbox" id="optTxt" checked> Plain Text (.txt)</label>
+      <label><input type="checkbox" id="optPdf"> PDF (.pdf)</label>
+      <label><input type="checkbox" id="optImg"> Image (.png)</label>
+      <button id="exportSelected">Export</button>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
